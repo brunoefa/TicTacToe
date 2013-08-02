@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Jogo da Velhanelson</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="jogo_da_velha">Jogo da Velha</string>
+    <string name="jogador_1">Jogador 1</string>
+    <string name="jogador_2">Jogador 2</string>
+    <string name="come_ar_o_jogo">Começar o Jogo</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_stats">StatsActivity</string>
+    <string name="vencedor">Jogador 1 é o vencedor!</string>
+    <string name="novo_jogo">Jogar novamente</string>
+    <string name="estatisticas">Estatísticas</string>
+    <string name="vitorias">Vitórias</string>
+    <string name="derrotas">Derrotas</string>
+    <string name="empate">Empates</string>
+
+</resources>
