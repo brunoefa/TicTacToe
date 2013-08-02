@@ -6,7 +6,7 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:orientation="vertical" >
-
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,7 +18,8 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:textSize="40dp"
+            android:textSize="40sp"
+            android:text="X"
             android:layout_height="match_parent"
             android:onClick="click1"
              />
@@ -28,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:layout_height="match_parent" 
             android:onClick="click2"
             />
@@ -38,7 +39,7 @@
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:layout_height="match_parent" 
             android:onClick="click3"
             />
@@ -55,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"            
+	        android:textSize="40sp"            
             android:layout_height="match_parent" 
             android:onClick="click4"
             />
@@ -65,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"            
+	        android:textSize="40sp"            
             android:layout_height="match_parent" 
             android:onClick="click5"
             />
@@ -75,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"            
+	        android:textSize="40sp"            
             android:layout_height="match_parent" 
             android:onClick="click6"
             />
@@ -92,7 +93,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"            
+	        android:textSize="40sp"            
             android:layout_height="match_parent" 
             android:onClick="click7"
             />
@@ -102,7 +103,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"
+	        android:textSize="40sp"
             android:layout_height="match_parent" 
             android:onClick="click8"/>
 
@@ -111,7 +112,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
 	        android:layout_gravity="center_vertical"
-	        android:textSize="40dp"            
+	        android:textSize="40sp"            
             android:layout_height="match_parent"
             android:onClick="click9"
              />

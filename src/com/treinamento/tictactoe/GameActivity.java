@@ -1,6 +1,7 @@
 package com.treinamento.tictactoe;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ public class GameActivity extends Activity {
 	private static final String SYMBOL_X = "X";
 	
 	private String playerSymbol = SYMBOL_O;
-	private Integer currentIndex = 0;
+	String sequencia[][];
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +24,7 @@ public class GameActivity extends Activity {
 	public void setupButton(Button b) {
 		b.setText(getPlayerSymbol());
 		b.setEnabled(Boolean.FALSE);
-		showMessage("Index: " + currentIndex);
-//		Intent i = getIntent();
-//		Bundle params = i.getExtras();
-//		Game game = (Game)params.getSerializable("game");
+		verifyWinner();
 	}
 	
 	public String getPlayerSymbol() {
@@ -38,80 +36,70 @@ public class GameActivity extends Activity {
 		return playerSymbol;
 	}
 	
-	
-	
-/*	
-	public void onClick(View view) {
-		int id = 0; 
-		switch (view.getId()) {
-			case R.id.button1: id = R.id.button1; currentIndex = 1; break;
-			case R.id.button2: id = R.id.button2; currentIndex = 2; break;
-			case R.id.button3: id = R.id.button3; currentIndex = 3; break;
-			case R.id.button4: id = R.id.button4; currentIndex = 4; break;
-			case R.id.button5: id = R.id.button5; currentIndex = 5; break;
-			case R.id.button6: id = R.id.button6; currentIndex = 6; break;
-			case R.id.button7: id = R.id.button7; currentIndex = 7; break;
-			case R.id.button8: id = R.id.button8; currentIndex = 8; break;
-			case R.id.button9: id = R.id.button9; currentIndex = 9; break;
+	public void verifyWinner() {
+		if (sequencia.length == 9) {
+			
 		}
-		showMessage("Clicado: " + id);
-		if (id != 0){
-			Button button = (Button)findViewById(id);
-			setupButton(button);	
-		}
+		
 	}
-*/	
+	
+	public void showWinner() {
+		Intent i = getIntent();
+		Bundle params = i.getExtras();
+		params.getSerializable("game");
+	}
+	
 	public void click1(View view) {
 		Button button = (Button)findViewById(R.id.button1);
-		currentIndex = 1;
+		sequencia[1][1] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click2(View view) {
 		Button button = (Button)findViewById(R.id.button2);
-		currentIndex = 2;
+		sequencia[1][2] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click3(View view) {
 		Button button = (Button)findViewById(R.id.button3);
-		currentIndex = 3;
+		sequencia[1][3] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click4(View view) {
 		Button button = (Button)findViewById(R.id.button4);
-		currentIndex = 4;
+		sequencia[2][1] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click5(View view) {
 		Button button = (Button)findViewById(R.id.button5);
-		currentIndex = 5;
+		sequencia[2][2] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click6(View view) {
 		Button button = (Button)findViewById(R.id.button6);
-		currentIndex = 6;
+		sequencia[2][3] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click7(View view) {
 		Button button = (Button)findViewById(R.id.button7);
-		currentIndex = 7;
+		sequencia[3][1] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click8(View view) {
 		Button button = (Button)findViewById(R.id.button8);
-		currentIndex = 8;
+		sequencia[3][2] = playerSymbol;
 		setupButton(button);
 	}
 	
 	public void click9(View view) {
 		Button button = (Button)findViewById(R.id.button9);
-		currentIndex = 9;
+		sequencia[3][3] = playerSymbol;
 		setupButton(button);
 	}
 	
