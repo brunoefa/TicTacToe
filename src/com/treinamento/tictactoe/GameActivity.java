@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class GameActivity extends Activity {
 	
@@ -163,7 +162,4 @@ public class GameActivity extends Activity {
 		move(2, 2, currentState);
 	}
 	
-	private	void showMessage(String message) {
-		Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-	}
 }
