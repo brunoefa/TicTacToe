@@ -19,7 +19,6 @@
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
             android:textSize="40sp"
-            android:text="X"
             android:layout_height="match_parent"
             android:onClick="click1"
              />

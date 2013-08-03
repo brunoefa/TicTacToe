@@ -9,7 +9,7 @@ public class Game implements Serializable {
 	private String jogador2;
 	private Integer vitoriasJogador1;
 	private Integer VitoriasJogador2;
-	private Integer partidasJogadas;
+	private Integer empates;
 	
 	public String getJogador1() {
 		return jogador1;
@@ -35,11 +35,11 @@ public class Game implements Serializable {
 	public void setVitoriasJogador2(Integer vitoriasJogador2) {
 		VitoriasJogador2 = vitoriasJogador2;
 	}
-	public Integer getPartidasJogadas() {
-		return partidasJogadas;
+	public Integer getEmpates() {
+		return empates;
 	}
-	public void setPartidasJogadas(Integer partidasJogadas) {
-		this.partidasJogadas = partidasJogadas;
+	public void setEmpates(Integer empates) {
+		this.empates = empates;
 	}
 	
 }

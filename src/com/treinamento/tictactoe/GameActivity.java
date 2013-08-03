@@ -9,11 +9,11 @@ import android.widget.Toast;
 
 public class GameActivity extends Activity {
 	
-	private static final String SYMBOL_O = "O";
-	private static final String SYMBOL_X = "X";
-	
-	private String playerSymbol = SYMBOL_O;
-	String sequencia[][];
+	enum State{Blank, X, O};
+	State currentState = State.X;
+	int n = 3;
+	int moveCount;
+	State[][] board = new State[n][n];
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,85 +22,121 @@ public class GameActivity extends Activity {
 	}
 	
 	public void setupButton(Button b) {
-		b.setText(getPlayerSymbol());
+		b.setText(currentState == State.X ? "X" : "O");
 		b.setEnabled(Boolean.FALSE);
-		verifyWinner();
 	}
 	
-	public String getPlayerSymbol() {
-		if (playerSymbol.equals(SYMBOL_O)) {
-			playerSymbol = SYMBOL_X;
-		}else {
-			playerSymbol = SYMBOL_O;
+	public void turnState() {
+		currentState = (currentState == State.X ? State.O : State.X);
+	}
+	
+	public void move(int x, int y, State s) {
+
+		board[x][y] = s;
+		turnState();
+		moveCount++;
+
+		// check end conditions
+
+		// check col
+		for (int i = 0; i < n; i++) {
+			if (board[x][i] != s) break;
+			if (i == n - 1) {
+				showWinner(s);
+			}
 		}
-		return playerSymbol;
-	}
-	
-	public void verifyWinner() {
-		if (sequencia.length == 9) {
-			
+
+		// check row
+		for (int i = 0; i < n; i++) {
+			if (board[i][y] != s) break;
+			if (i == n - 1) {
+				showWinner(s);
+			}
 		}
-		
+
+		// check diag
+		if (x == y) {
+			// we're on a diagonal
+			for (int i = 0; i < n; i++) {
+				if (board[i][i] != s) break;
+				if (i == n - 1) {
+					showWinner(s);
+				}
+			}
+		}
+
+		// check anti diag (thanks rampion)
+		for (int i = 0; i < n; i++) {
+			if (board[i][(n - 1) - i] != s) break;
+			if (i == n - 1) {
+				showWinner(s);
+			}
+		}
+
+		// check draw
+		if (moveCount == (Math.pow(n, 2) - 1)) {
+			showWinner(State.Blank);
+		}
 	}
 	
-	public void showWinner() {
+	public void showWinner(State s) {
 		Intent i = getIntent();
 		Bundle params = i.getExtras();
-		params.getSerializable("game");
+		Game game = (Game)params.getSerializable("game");
 	}
 	
 	public void click1(View view) {
 		Button button = (Button)findViewById(R.id.button1);
-		sequencia[1][1] = playerSymbol;
 		setupButton(button);
+		move(0, 0, currentState);
 	}
 	
 	public void click2(View view) {
 		Button button = (Button)findViewById(R.id.button2);
-		sequencia[1][2] = playerSymbol;
 		setupButton(button);
+		move(0, 1, currentState);
 	}
 	
 	public void click3(View view) {
 		Button button = (Button)findViewById(R.id.button3);
-		sequencia[1][3] = playerSymbol;
 		setupButton(button);
+		move(0, 2, currentState);
 	}
 	
 	public void click4(View view) {
 		Button button = (Button)findViewById(R.id.button4);
-		sequencia[2][1] = playerSymbol;
 		setupButton(button);
+		move(1, 0, currentState);
 	}
 	
 	public void click5(View view) {
 		Button button = (Button)findViewById(R.id.button5);
-		sequencia[2][2] = playerSymbol;
 		setupButton(button);
+		move(1, 1, currentState);
 	}
 	
 	public void click6(View view) {
 		Button button = (Button)findViewById(R.id.button6);
-		sequencia[2][3] = playerSymbol;
 		setupButton(button);
+		move(1, 2, currentState);
 	}
 	
 	public void click7(View view) {
 		Button button = (Button)findViewById(R.id.button7);
-		sequencia[3][1] = playerSymbol;
 		setupButton(button);
+		move(2, 0, currentState);
 	}
 	
 	public void click8(View view) {
 		Button button = (Button)findViewById(R.id.button8);
-		sequencia[3][2] = playerSymbol;
 		setupButton(button);
+		move(2, 1, currentState);
 	}
 	
 	public void click9(View view) {
 		Button button = (Button)findViewById(R.id.button9);
-		sequencia[3][3] = playerSymbol;
 		setupButton(button);
+		move(2, 2, currentState);
 	}
 	
 	private	void showMessage(String message) {
