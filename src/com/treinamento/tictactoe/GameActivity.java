@@ -36,53 +36,50 @@ public class GameActivity extends Activity {
 		turnState();
 		moveCount++;
 
-		// check end conditions
-
-		// check col
+		// verifica colunas
 		for (int i = 0; i < n; i++) {
 			if (board[x][i] != s) break;
 			if (i == n - 1) {
-				showWinner(s);
+				showStats(s);
 			}
 		}
 
-		// check row
+		// verifica linhas
 		for (int i = 0; i < n; i++) {
 			if (board[i][y] != s) break;
 			if (i == n - 1) {
-				showWinner(s);
+				showStats(s);
 			}
 		}
 
-		// check diag
+		// verifica diagonal
 		if (x == y) {
 			// we're on a diagonal
 			for (int i = 0; i < n; i++) {
 				if (board[i][i] != s) break;
 				if (i == n - 1) {
-					showWinner(s);
+					showStats(s);
 				}
 			}
 		}
 
-		// check anti diag (thanks rampion)
+		// verifica antidiagonal
 		for (int i = 0; i < n; i++) {
 			if (board[i][(n - 1) - i] != s) break;
 			if (i == n - 1) {
-				showWinner(s);
+				showStats(s);
 			}
 		}
 
-		// check draw
+		// verifica velha
 		if (moveCount == (Math.pow(n, 2) - 1)) {
-			showWinner(State.Blank);
+			showStats(State.Blank);
 		}
 	}
 	
-	public void showWinner(State s) {
+	public void showStats(State s) {
 		Intent i = getIntent();
-		Bundle params = i.getExtras();
-		Game game = (Game)params.getSerializable("game");
+		i.putExtra("winner", s);
 	}
 	
 	public void click1(View view) {
