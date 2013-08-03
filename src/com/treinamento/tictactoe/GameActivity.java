@@ -11,19 +11,31 @@ public class GameActivity extends Activity {
 	
 	enum State{Blank, X, O};
 	State currentState = State.X;
-	int n = 3;
-	int moveCount;
+	int n = 3, moveCount; 
+	Integer xwins = 0, owins = 0, draws = 0;
 	State[][] board = new State[n][n];
+	Intent appIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
+		setupGame();
 	}
 	
 	public void setupButton(Button b) {
-		b.setText(currentState == State.X ? "X" : "O");
+		b.setText(currentState.toString());
 		b.setEnabled(Boolean.FALSE);
+	}
+	
+	public void setupGame() {
+		appIntent = getIntent();
+		String winner = appIntent.getStringExtra("winner");
+		if (winner != null) {
+			xwins = Integer.parseInt(appIntent.getStringExtra("xwins").trim());
+			owins = Integer.parseInt(appIntent.getStringExtra("owins").trim());
+			draws = Integer.parseInt(appIntent.getStringExtra("draws").trim());
+		}
 	}
 	
 	public void turnState() {
@@ -79,7 +91,22 @@ public class GameActivity extends Activity {
 	
 	public void showStats(State s) {
 		Intent i = getIntent();
-		i.putExtra("winner", s);
+		i.setClass(this , StatsActivity.class);
+		
+		if (s == State.X) {
+			xwins++;
+		} else if (s == State.O) { 
+			owins++;
+		} else {
+			draws++;
+		}
+		
+		i.putExtra("winner", s.toString());
+		i.putExtra("xwins", xwins.toString());
+		i.putExtra("owins", owins.toString());
+		i.putExtra("draws", draws.toString());
+		
+		startActivity(i);
 	}
 	
 	public void click1(View view) {

@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/winner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -34,20 +34,20 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_player1_title"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:text="@string/vitorias" />
+                android:text="@string/player1" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_player2_title"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:text="@string/derrotas" />
+                android:text="@string/player2" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content" >
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_player1"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -73,7 +73,7 @@
                 android:text="0" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/tv_player2"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -82,7 +82,7 @@
                 android:text="0" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/draws"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -98,6 +98,7 @@
         android:id="@+id/bt_novo_jogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="playAgain"
         android:text="@string/novo_jogo" />
 
 </LinearLayout>
